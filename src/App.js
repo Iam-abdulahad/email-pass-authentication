@@ -1,4 +1,7 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import app from './firebase.init';
 import { getAuth } from "firebase/auth";
 
@@ -9,32 +12,31 @@ function App() {
   return (
     <div className="App">
 
+      <div className='registration w-50 mx-auto'>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-
-      <div>
-        <center> <h1> Student Login Form </h1> </center>
-        <form>
-          <div class="container">
-            <label>Username : </label>
-            <input type="text" placeholder="Enter Username" name="username" required />
-              <label>Password : </label>
-              <input type="password" placeholder="Enter Password" name="password" required />
-                <button type="submit"> Login </button>
-                <input type="checkbox" checked="checked" />
-                  
-                  
-                   Remember me
-                  <button type="button" class="cancel_btn"> Cancel </button>
-                  Forgot <a href="#"> password? </a>
-                </div>
-              </form>
-          </div>
-
-
-
-
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
       </div>
-      );
+
+    </div>
+  );
 }
 
-      export default App;
+export default App;
